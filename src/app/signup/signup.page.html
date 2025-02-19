@@ -1,0 +1,24 @@
+<ion-content class="ion-padding">
+  <div class="signup-container">
+    <h1>Bienvenido a PhotoPic</h1>
+    <p>Siempre es bueno ver caras nuevas</p>
+    <ion-list>
+      <ion-item>
+        <ion-input label="Correo:" type="email" [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Contraseña:" type="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Confirma la contraseña:" type="password" [(ngModel)]="confirmPassword"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button mat-flat-button (click)="signup()" style="width: 90%; margin-top: 20px;" >Registrarme</button>
+    <p>¿Ya tienes una cuenta? <a routerLink="/login">Ingresa desde aquí</a>
+    <p style="font-size: small;">Antes de registrarte lee nuestros <a id="termsModal">terminos y
+        condiciones</a> acerca del uso
+      de tus datos al usar nuestros servicios</p>
+      <br>
+    <ion-checkbox slot="start" [(ngModel)]="termsAccepted">He leido el aviso de privacidad</ion-checkbox>
+  </div>
+</ion-content>

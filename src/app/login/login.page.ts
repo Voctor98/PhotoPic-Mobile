@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonItem, IonInput, IonList, IonButtons, IonModal, IonCheckbox } from '@ionic/angular/standalone';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { MatInputModule } from "@angular/material/input";
+import { MatButtonModule } from "@angular/material/button";
 
 @Component({
   selector: 'app-login',
@@ -10,21 +12,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
   standalone: true,
   imports: [
-    IonCheckbox, 
-    IonModal, 
     IonCheckbox,
-    IonModal, 
-    IonList, 
-    IonInput, 
-    IonItem, 
+    IonModal,
+    IonCheckbox,
+    IonModal,
+    IonList,
+    IonInput,
+    IonItem,
     IonButton,
     IonButtons,
-    IonContent, 
-    IonHeader, 
-    IonTitle, 
-    IonToolbar, 
-    CommonModule, 
-    FormsModule
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    CommonModule,
+    FormsModule,
+    MatInputModule,
+    MatButtonModule,
+    RouterLink
   ]
 })
 export class LoginPage implements OnInit {
@@ -33,7 +38,7 @@ export class LoginPage implements OnInit {
   presentingElement!: HTMLElement | null;
 
   email: string = '';
-  password: string = '';  
+  password: string = '';
 
   constructor(private router: Router) { }
 
