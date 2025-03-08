@@ -1,4 +1,7 @@
 <ion-content class="ion-padding">
+  <button mat-icon-button (click)="goToLogin()">
+      <mat-icon class="mat-18">arrow_back</mat-icon>
+  </button>
   <h1>Registro de nuevo usuario</h1>
   <form [formGroup]="registerForm" (ngSubmit)="register()">
     <ion-item>

@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, IonList, IonButton, IonItem],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, IonList, IonButton],
 })
 export class Tab3Page {
   constructor(private authService: AuthService, private router: Router) {}
