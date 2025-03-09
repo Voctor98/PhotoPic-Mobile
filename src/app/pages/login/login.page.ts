@@ -16,13 +16,20 @@ export class LoginPage {
 
   email = '';
   password = '';
+  userData: any; // New property to store user data
 
   constructor(private authService: AuthService, private router: Router) { }
 
   onLogin() {
-    this.authService.signIn( this.email, this.password ).subscribe({
-      next: () => {
-        this.router.navigateByUrl('/tabs', { replaceUrl: true });
+    this.authService.signIn(this.email, this.password).subscribe({
+      next: (user) => {
+        this.userData = user; // Save user data
+        console.log(user);
+        if (user.newUser) {
+          this.router.navigate(['/complete-info']);
+        } else {
+          this.router.navigateByUrl('/tabs', { replaceUrl: true });
+        }
       },
       error: (error) => {
         console.error(error);

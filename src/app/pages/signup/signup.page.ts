@@ -43,6 +43,7 @@ export class SignupPage {
         next: () => {
           console.log('Usuario registrado');
           alert('Registro exitoso. Bienvenido a PhotoPic');
+          this.router.navigate(['/complete-info'])
         },
         error: (error) => {
           console.error(error);

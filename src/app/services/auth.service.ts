@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 
 @Injectable({
@@ -10,14 +11,14 @@ export class AuthService {
   private url = 'http://localhost:4000/api/auth';
   private authState = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
-  signIn(email: string, password: string): Observable<boolean> {
-    return this.http.post<{ token: string}>(`${this.url}/signin`, { email, password }).pipe(
+  signIn(email: string, password: string): Observable<any> {
+    return this.http.post<{ token: string, user: any }>(`${this.url}/signin`, { email, password }).pipe(
       map(response => {
         localStorage.setItem('token', response.token);
         this.authState.next(true);
-        return true;
+        return response.user; // Return user data
       })
     );
   }
@@ -29,6 +30,7 @@ export class AuthService {
   logOut() {
     localStorage.removeItem('token');
     this.authState.next(false);
+    this.router.navigate(['/login'])
   }
 
   isAuthenticated(): Observable<boolean> {
