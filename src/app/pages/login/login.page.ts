@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonItem, IonInput, IonLabel, IonButton } from '@ionic/angular/standalone';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router, RouterLink } from '@angular/router';
+import { Preferences } from '@capacitor/preferences';
 
 @Component({
   selector: 'app-login',
@@ -25,11 +26,7 @@ export class LoginPage {
       next: (user) => {
         this.userData = user; // Save user data
         console.log(user);
-        if (user.newUser) {
-          this.router.navigate(['/complete-info']);
-        } else {
-          this.router.navigateByUrl('/tabs', { replaceUrl: true });
-        }
+        this.router.navigateByUrl('/tabs', { replaceUrl: true });
       },
       error: (error) => {
         console.error(error);

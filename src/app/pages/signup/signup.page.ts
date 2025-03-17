@@ -5,13 +5,26 @@ import { IonContent, IonItem, IonLabel, IonButton, IonCheckbox, IonInput, IonIco
 import { MatIconModule } from "@angular/material/icon";
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { Preferences } from '@capacitor/preferences';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
   styleUrls: ['./signup.page.scss'],
   standalone: true,
-  imports: [IonInput, IonCheckbox, IonButton, IonLabel, IonItem, IonContent, CommonModule, FormsModule, ReactiveFormsModule, MatIconModule]
+  imports: [IonInput, 
+    IonCheckbox, 
+    IonButton, 
+    IonLabel, 
+    IonItem, 
+    IonContent, 
+    CommonModule, 
+    FormsModule, 
+    ReactiveFormsModule, 
+    MatIconModule,
+    MatButtonModule
+  ]
 })
 export class SignupPage {
 
@@ -40,10 +53,12 @@ export class SignupPage {
   register() {
     if (this.registerForm.valid && this.privacyAccepted) {
       this.authService.register(this.registerForm.value).subscribe({
-        next: () => {
+        next: (res) => {
+          localStorage.setItem('token', res.token);
+          Preferences.set({ key: 'token', value: res.token });
+          this.router.navigate(['/tabs'])
           console.log('Usuario registrado');
           alert('Registro exitoso. Bienvenido a PhotoPic');
-          this.router.navigate(['/complete-info'])
         },
         error: (error) => {
           console.error(error);

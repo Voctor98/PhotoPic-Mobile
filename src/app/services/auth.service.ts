@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Preferences } from "@capacitor/preferences";
 import { Router } from '@angular/router';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 
@@ -8,7 +9,7 @@ import { BehaviorSubject, map, Observable } from 'rxjs';
 })
 export class AuthService {
   
-  private url = 'http://localhost:4000/api/auth';
+  private url = 'http://localhost:4000/api/auth/user';
   private authState = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -16,7 +17,10 @@ export class AuthService {
   signIn(email: string, password: string): Observable<any> {
     return this.http.post<{ token: string, user: any }>(`${this.url}/signin`, { email, password }).pipe(
       map(response => {
-        localStorage.setItem('token', response.token);
+        Preferences.set({ key: 'token', value: response.token }); // Save token in preferences
+        Preferences.set({ key: 'user', value: response.user.id }); // Save user id in preferences
+        localStorage.setItem('user', response.user.id); // Save user id in local storage
+        localStorage.setItem('token', response.token); // Save token in local storage
         this.authState.next(true);
         return response.user; // Return user data
       })
@@ -28,7 +32,7 @@ export class AuthService {
   }
 
   logOut() {
-    localStorage.removeItem('token');
+    localStorage.clear();
     this.authState.next(false);
     this.router.navigate(['/login'])
   }
