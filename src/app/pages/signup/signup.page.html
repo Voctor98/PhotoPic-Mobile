@@ -37,4 +37,11 @@
       Registrarse
     </ion-button>
   </form>
+  <ion-alert
+    [isOpen]="isAlertOpen"
+    header="Registro invalido"
+    [message]="message"
+    [buttons]="['OK']"
+    (didDismiss)="dissMissAlert(false)">
+  </ion-alert>
 </ion-content>

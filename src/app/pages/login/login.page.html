@@ -1,15 +1,46 @@
-<ion-content class="ion-padding" style="text-align: center;">
-  <h1>Iniciar sesión</h1>
-  <form (submit)="onLogin()">
-    <ion-item>
-      <ion-label position="floating">Correo:</ion-label>
-      <ion-input type="email" [(ngModel)]="email" name="email"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Contraseña:</ion-label>
-      <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
-    </ion-item>
-    <ion-button expand="block" type="submit">Iniciar sesión</ion-button>
-  </form>
-  <p>¿No tienes cuenta? <a routerLink="/signup">Regístrate</a></p>
+<ion-content>
+  <div class="login-form">
+    <h1>Iniciar sesión</h1>
+    <form (submit)="onLogin()">
+      <ion-item>
+        <ion-input 
+        type="email" 
+        [(ngModel)]="email" 
+        name="email" 
+        label="Correo electronico" 
+        labelPlacement="floating"
+        required>
+      </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input 
+        type="password" 
+        [(ngModel)]="password" 
+        name="password" 
+        placeholder="contraseña"
+        label="Contraseña"
+        labelPlacement="floating" 
+        required>
+      </ion-input>
+      </ion-item>
+      <br>
+      <ion-button expand="block" type="submit">Iniciar sesión</ion-button>
+    </form>
+    <p>¿No tienes cuenta? <a routerLink="/signup">Regístrate</a></p>
+  </div>
+  <!-- Alerta para inicios de sesion invalidos -->
+  <ion-alert
+    [isOpen]="isAlertOpen"
+    header="Inicio de sesion invalido"
+    [message]="message"
+    [buttons]="['OK']"
+    (didDismiss)="dismissAlert(false)"
+  ></ion-alert>
+  <!-- toast para mensaje de inicio de sesion -->
+  <ion-toast
+    [isOpen]="isToastOpen"
+    [message]="message"
+    [duration]="2000"
+    (didDismiss)="dissmisToast(false)"
+  ></ion-toast>
 </ion-content>

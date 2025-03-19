@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonButton, IonItem, IonLabel, IonToggle, IonSelect, IonSelectOption } from '@ionic/angular/standalone';
-import { ExploreContainerComponent } from '../explore-container/explore-container.component';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonButton, IonItem, IonLabel } from '@ionic/angular/standalone';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 
@@ -17,9 +16,6 @@ import { Router } from '@angular/router';
     IonButton,
     IonItem,
     IonLabel,
-    IonToggle,
-    IonSelect,
-    IonSelectOption,
   ],
 })
 export class Tab3Page {

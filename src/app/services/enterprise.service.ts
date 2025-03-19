@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class EnterpriseService {
   private url = 'http://localhost:4000/api/enterprises';
+  // private url = 'https://photopic-back-production.up.railway.app/api/enterprises';
 
   constructor(private http: HttpClient) { }
 

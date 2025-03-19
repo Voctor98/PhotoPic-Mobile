@@ -25,4 +25,5 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/complete-info/complete-info.page').then( m => m.CompleteInfoPage)
   },
 
+
 ];

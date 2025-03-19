@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IonContent, IonItem, IonLabel, IonButton, IonCheckbox, IonInput, IonIcon } from '@ionic/angular/standalone';
+import { IonContent, IonItem, IonLabel, IonButton, IonCheckbox, IonInput, IonAlert } from '@ionic/angular/standalone';
 import { MatIconModule } from "@angular/material/icon";
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
@@ -17,7 +17,8 @@ import { MatButtonModule } from '@angular/material/button';
     IonCheckbox, 
     IonButton, 
     IonLabel, 
-    IonItem, 
+    IonItem,
+    IonAlert, 
     IonContent, 
     CommonModule, 
     FormsModule, 
@@ -28,6 +29,9 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class SignupPage {
 
+
+  isAlertOpen = false;
+  message = '';
   registerForm: FormGroup;
   privacyAccepted = false;
 
@@ -62,7 +66,8 @@ export class SignupPage {
         },
         error: (error) => {
           console.error(error);
-          alert('Registro fallido: ' + error.error.msg);
+          this.message = error.error.msg;
+          this.isAlertOpen = true;
         }
       });
     } else {
@@ -72,6 +77,10 @@ export class SignupPage {
 
   goToLogin() {
     this.router.navigate(['/login']);
+  }
+  
+  dissMissAlert(isOpen: boolean) {
+    this.isAlertOpen = isOpen;
   }
 
 }
