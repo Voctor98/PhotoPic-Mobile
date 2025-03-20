@@ -19,8 +19,8 @@ export class AuthService {
     return this.http.post<{ token: string, user: any }>(`${this.url}/signin`, { email, password }).pipe(
       map(response => {
         Preferences.set({ key: 'token', value: response.token }); // Save token in preferences
-        Preferences.set({ key: 'user', value: response.user.id }); // Save user id in preferences
-        localStorage.setItem('user', response.user.id); // Save user id in local storage
+        // Preferences.set({ key: 'user', value: response.user.id }); // Save user id in preferences
+        // localStorage.setItem('user', response.user.id); // Save user id in local storage
         localStorage.setItem('token', response.token); // Save token in local storage
         this.authState.next(true);
         return response.user; // Return user data

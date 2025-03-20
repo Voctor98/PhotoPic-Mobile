@@ -33,6 +33,7 @@ export class LoginPage {
     this.authService.signIn(this.email, this.password).subscribe({
       next: (user) => {
         this.userData = user; // Save user data
+        localStorage.setItem('dataUser', JSON.stringify(this.userData)); // Save user data in local storage
         console.log(user);
         this.isToastOpen = true;
         this.message = `Bienvenido ${user.name}`;

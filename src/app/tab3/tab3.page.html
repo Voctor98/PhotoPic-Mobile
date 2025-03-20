@@ -16,12 +16,22 @@
   <ion-list class="ion-padding">
     <ion-button expand="full" (click)="cerrarSesion()">Cerrar sesion</ion-button>
   </ion-list>
-
-  <ion-list>
+  <!-- <ion-list>
     <ion-item>
       <ion-label>Idioma</ion-label>
     </ion-item>
   </ion-list>
+  <ion-item></ion-item> -->
 
-  <!-- <app-explore-container name="Tab 3 page"></app-explore-container> -->
+  <ion-list class="ion-padding">
+    <h2>Datos del usuario</h2>
+    <ion-item>
+      <ion-label>Nombre:</ion-label>
+      <ion-text>{{ user.name }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Email:</ion-label>
+      <ion-text>{{ user.email }}</ion-text>
+    </ion-item>
+  </ion-list>
 </ion-content>

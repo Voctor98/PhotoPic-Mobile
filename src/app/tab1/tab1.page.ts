@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { IonicModule } from "@ionic/angular";
 import { Preferences } from '@capacitor/preferences';
 import { SessionsService } from '../services/sessions.service';
-import { NgFor, NgIf } from '@angular/common';
+import { CommonModule, DatePipe, NgFor, NgIf } from '@angular/common';
 import { addIcons } from 'ionicons';
-import { add } from 'ionicons/icons';
+import { add, checkmarkCircle, closeCircle } from 'ionicons/icons';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -14,21 +14,25 @@ import { FormsModule } from '@angular/forms';
   imports: [
     IonicModule, 
     FormsModule,
+    CommonModule,
     NgFor,
     NgIf
   ],
+  providers: [DatePipe]
 })
 export class Tab1Page implements OnInit{
 
   accessCode = '';
   alertOpen = false;
   message = '';
+  status = '';
   length = 0;
   sessions: any[] = [];
-  userId = localStorage.getItem('user') || '';
+  // userId = localStorage.getItem('user') || '';
+  userData: any = JSON.parse(localStorage.getItem('dataUser') || '{}');
 
   constructor(private sessionService: SessionsService) {
-    addIcons({ add });
+    addIcons({ add, closeCircle, checkmarkCircle });
   }
 
   ngOnInit(): void {
@@ -39,9 +43,16 @@ export class Tab1Page implements OnInit{
   async getUserSessions(event?: any) {
     document.addEventListener('touchstart', function(e) {}, {passive: true});
     document.addEventListener('touchmove', function(e) {}, {passive: true});
-    this.sessionService.getUserSessions(this.userId).subscribe({
+    this.sessionService.getUserSessions(this.userData.id).subscribe({
       next: (data) => {
         this.sessions = data;
+        this.sessions.forEach((session) => {
+          if (session.revised === false) {
+            this.status = 'No revisado';
+          } else {
+            this.status = 'Revisado';
+          }
+        });
         console.log(data);
         if (event) {
           event.target.complete();
@@ -67,7 +78,7 @@ export class Tab1Page implements OnInit{
   }
 
   onAccessCodeSubmit() {
-    this.sessionService.asingSession(this.userId, this.accessCode).subscribe({
+    this.sessionService.asingSession(this.userData.id, this.accessCode).subscribe({
       next: (data) => {
         console.log(data);
         this.getUserSessions();

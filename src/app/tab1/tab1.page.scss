@@ -14,3 +14,15 @@
     color: #8c8c8c;
     margin: 0;
 }
+
+.ion-col {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+ion-avatar {
+    --border-radius: 4px;
+    min-height: 70px;
+    min-width: 70px;
+}

@@ -19,9 +19,34 @@
   <!-- Add a list to display photo sessions -->
   <ion-list *ngIf="sessions.length > 0">
     <ion-item *ngFor="let session of sessions">
+      <ion-avatar slot="start">
+        <img src="https://www.salonjardineventos.com/wp-content/uploads/2020/05/Montaje-Platino-Caminos-Menta-con-Turquesa-3.jpeg" alt="avatar">
+      </ion-avatar>
       <ion-label>
-        <h2>{{ session.photographer.name }} {{ session.photographer.lastName }}</h2>
-        <p>{{ session.date }}</p>
+        <ion-grid>
+          <ion-row>
+            <!-- <ion-col class="ion-col" size="auto">
+              
+            </ion-col> -->
+            <ion-col class="ion-col">
+              <div>
+                <h2>{{ session.albumName }}</h2>
+                <p>Fecha: {{ session.date | date: 'dd/MM/yyyy' }}</p>
+                <strong>{{ status }} </strong>
+                <ion-icon name="checkmark-circle" color="success" *ngIf="status === 'Revisado'"></ion-icon>
+                <ion-icon name="close-circle" color="danger" *ngIf="status === 'No revisado'"></ion-icon>
+              </div>
+            </ion-col>
+            <ion-col class="ion-col" size="auto">
+              <ion-button
+                fill="outline"
+                color="primary"
+                >
+                Ver
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-label>      
     </ion-item>
   </ion-list>
@@ -44,7 +69,7 @@
       <ion-content class="ion-padding">
         <div class="ion-padding-top">
           <ion-input
-            type="number"
+            type="text"
             label="Codigo de acceso"
             labelPlacement="floating"
             placeholder="Ingrese el codigo de 6 digitos"

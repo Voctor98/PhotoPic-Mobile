@@ -16,7 +16,7 @@ export class SessionsService {
     return this.http.get<any>(`${this.url}/client/${userId}`);
   }
 
-  asingSession(client: string, accesCode: string): Observable<any> {
-    return this.http.put<any>(`${this.url}/assign`, { client, accesCode });
+  asingSession(client: string, accessCode: string): Observable<any> {
+    return this.http.put<any>(`${this.url}/assign`, { client, accessCode });
   }
 }

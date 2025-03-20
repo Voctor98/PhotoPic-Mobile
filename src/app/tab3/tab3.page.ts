@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonButton, IonItem, IonLabel } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonButton, IonItem, IonLabel, IonText } from '@ionic/angular/standalone';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 
@@ -16,10 +16,13 @@ import { Router } from '@angular/router';
     IonButton,
     IonItem,
     IonLabel,
+    IonText,
   ],
 })
 export class Tab3Page {
-  constructor(private authService: AuthService, private router: Router) {}
+
+  user: any = JSON.parse(localStorage.getItem('dataUser') || '{}');
+  constructor(private authService: AuthService) {}
 
   cerrarSesion(){
     this.authService.logOut()
