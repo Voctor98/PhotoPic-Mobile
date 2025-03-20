@@ -38,12 +38,13 @@
               </div>
             </ion-col>
             <ion-col class="ion-col" size="auto">
-              <ion-button
+              <!-- <ion-button
                 fill="outline"
                 color="primary"
                 >
                 Ver
-              </ion-button>
+              </ion-button> -->
+              <button mat-flat-button style="border-radius: 5px;">Ver</button>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -54,11 +55,16 @@
     <h2>No tienes albumes</h2>
     <p>Pide a tu fotografo asignarte un album y proporcionarte un codigo de acceso</p>
   </div>
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end" style="padding: 10px;">
+  <!-- <ion-fab slot="fixed" vertical="bottom" horizontal="end" style="padding: 10px;">
     <ion-fab-button id="open-code-form">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
-  </ion-fab>
+  </ion-fab> -->
+  <div class="fab-container">
+    <button mat-fab id="open-code-form">
+      <mat-icon matTooltip="Agregar album">add</mat-icon>
+    </button>
+  </div>
   <!-- Modal -->
   <ion-modal
     trigger="open-code-form"

@@ -5,13 +5,14 @@ import { IonContent, IonItem, IonInput, IonButton, IonAlert, IonToast } from '@i
 import { AuthService } from 'src/app/services/auth.service';
 import { Router, RouterLink } from '@angular/router';
 import { Preferences } from '@capacitor/preferences';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonButton, IonInput, IonItem, IonAlert, IonContent, IonToast, CommonModule, FormsModule, RouterLink]
+  imports: [IonButton, MatButtonModule, IonInput, IonItem, IonAlert, IonContent, IonToast, CommonModule, FormsModule, RouterLink]
 })
 export class LoginPage {
 

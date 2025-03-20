@@ -26,3 +26,10 @@ ion-avatar {
     min-height: 70px;
     min-width: 70px;
 }
+
+.fab-container {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 1000;
+}

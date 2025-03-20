@@ -6,6 +6,8 @@ import { CommonModule, DatePipe, NgFor, NgIf } from '@angular/common';
 import { addIcons } from 'ionicons';
 import { add, checkmarkCircle, closeCircle } from 'ionicons/icons';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-tab1',
@@ -15,6 +17,8 @@ import { FormsModule } from '@angular/forms';
     IonicModule, 
     FormsModule,
     CommonModule,
+    MatButtonModule,
+    MatIcon,
     NgFor,
     NgIf
   ],

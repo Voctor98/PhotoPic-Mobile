@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonButton, IonItem, IonLabel, IonText } from '@ionic/angular/standalone';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-tab3',
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
     IonTitle, 
     IonContent,
     IonList, 
-    IonButton,
+    MatButton,
     IonItem,
     IonLabel,
     IonText,
