@@ -35,5 +35,3 @@ steps:
     ls -la
     firebase deploy --only hosting --token "$(FIREBASE_DEPLOY_TOKEN)"
   displayName: 'Desplegar en Firebase Hosting'
-  env:
-    FIREBASE_DEPLOY_TOKEN: $(FIREBASE_DEPLOY_TOKEN)
