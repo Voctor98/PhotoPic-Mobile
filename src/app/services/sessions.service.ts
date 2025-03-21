@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class SessionsService {
 
   // private url = 'http://localhost:4000/api/session';
-  private url = 'https://photopic-back-production.up.railway.app/api/session';
+  private url = 'https://photopic-back-production.up.railway.app/api/session'; // URL to web api
 
   constructor(private http: HttpClient) { }
 
