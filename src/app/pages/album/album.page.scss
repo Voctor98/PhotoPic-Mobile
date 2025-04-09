@@ -1,0 +1,23 @@
+.secure-album img {
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .ion-card.selected {
+    border: 3px solid var(--ion-color-primary);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .selected-icon {
+    color: var(--ion-color-success);
+    font-size: 24px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }

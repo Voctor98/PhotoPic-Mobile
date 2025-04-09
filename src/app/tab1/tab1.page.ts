@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicModule } from "@ionic/angular";
 import { Preferences } from '@capacitor/preferences';
 import { SessionsService } from '../services/sessions.service';
 import { CommonModule, DatePipe, NgFor, NgIf } from '@angular/common';
@@ -8,19 +7,38 @@ import { add, checkmarkCircle, closeCircle } from 'ionicons/icons';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonRefresher, IonRefresherContent, IonList, IonItem, IonAvatar, IonLabel, IonGrid, IonCol, IonIcon, IonModal, IonButton, IonAlert, IonRow } from '@ionic/angular/standalone';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
   imports: [
-    IonicModule, 
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonRefresher,
+    IonRefresherContent,
+    IonList,
+    IonItem,
+    IonAvatar,
+    IonLabel,
+    IonGrid,
+    IonRow,
+    IonCol,
+    IonIcon,
+    IonModal,
+    IonButton,
+    IonAlert,
     FormsModule,
     CommonModule,
     MatButtonModule,
     MatIcon,
     NgFor,
-    NgIf
+    NgIf,
+    RouterLink
   ],
   providers: [DatePipe]
 })

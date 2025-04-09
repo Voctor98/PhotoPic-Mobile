@@ -23,7 +23,11 @@ export const routes: Routes = [
   {
     path: 'complete-info',
     loadComponent: () => import('./pages/complete-info/complete-info.page').then( m => m.CompleteInfoPage)
+  },  {
+    path: 'album',
+    loadComponent: () => import('./pages/album/album.page').then( m => m.AlbumPage)
   },
+
 
 
 ];

@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>XV años</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="secure-album">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" sizeMd="4" sizeLg="3" *ngFor="let photo of photos">
+        <!-- <ion-card (click)="toggleSelection(photo)" [class.selected]="isSelected(photo)">
+          <img [src]="photo.src" [alt]="photo.title" />
+          <ion-card-content>
+            <ion-icon *ngIf="isSelected(photo)" name="checkmark-circle" class="selected-icon"></ion-icon>
+          </ion-card-content>
+        </ion-card> -->
+        <ion-card (click)="openPhotoPreview(photo)">
+          <img [src]="photo.src" />
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-footer>
+    <ion-toolbar>
+      <ion-button expand="block" (click)="submitSelection()" [disabled]="selectedPhoto.length === 0">
+        Solicitar Impresión/Edición ({{ selectedPhoto.length }})
+      </ion-button>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>
