@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonGrid, IonCardContent, IonRow, IonCol, IonCard, IonIcon, IonFooter, IonButton, ModalController } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonGrid, IonCardContent, IonRow, IonCol, IonCard, IonIcon, IonFooter, IonButton, ModalController, IonButtons } from '@ionic/angular/standalone';
 import { PhotoPreviewComponent } from 'src/app/components/photo-preview/photo-preview.component';
+import { RouterLink } from '@angular/router';
+import { addIcons } from 'ionicons';
+import { arrowBack } from 'ionicons/icons';
 
 @Component({
   selector: 'app-album',
   templateUrl: './album.page.html',
   styleUrls: ['./album.page.scss'],
   standalone: true,
-  imports: [IonButton, IonFooter, IonIcon, IonCard, IonCol, IonRow, IonCardContent, IonGrid, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonButtons, IonButton, IonFooter, IonCard, IonCol, IonRow, IonGrid, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonIcon, RouterLink]
 })
 export class AlbumPage implements OnInit {
 
@@ -20,10 +23,16 @@ export class AlbumPage implements OnInit {
     { src: 'https://th.bing.com/th/id/R.9b5cb2c1e490830176af072c647e4378?rik=wqPImnCPjpkcGg&pid=ImgRaw&r=0', title: 'Photo 4' },
     { src: 'https://th.bing.com/th/id/OIP.BMX74dQWkzuaappcM1TlggHaE8?rs=1&pid=ImgDetMain', title: 'Photo 5' },
     { src: 'https://www.eldiario.com.co/wp-content/uploads/2022/01/NOTA-6-QUINCEANERA-e1642992597542.jpg', title: 'Photo 6' },
+    { src: 'https://th.bing.com/th/id/OIP.EBxnKYDBWH8S9sMsO2_7KQHaJB?rs=1&pid=ImgDetMain', title: 'Photo 7' },
+    { src: 'https://th.bing.com/th/id/R.d5ab654535975cc847cfdd08073cd686?rik=thO%2fQU3Kq7Qf6A&riu=http%3a%2f%2ftriplepar.com%2fwp-content%2fuploads%2f2016%2f12%2ffotografia-video-xv-anos-en-guadalajara6.jpg&ehk=zqMqY55CU%2bOGuyezw9WkVIjVka1vr0n4k6Sg5ImyrXw%3d&risl=&pid=ImgRaw&r=0', title: 'Photo 8' },
+    { src: 'https://th.bing.com/th/id/OIP.UI1Fc-Fwy3Ln6cFprB7MlgHaJQ?rs=1&pid=ImgDetMain', title: 'Photo 9' },
+    { src: 'https://th.bing.com/th/id/R.01e2c9d1c4c85c728225b9667d66401c?rik=Xn5LAAz%2bYjN5sg&pid=ImgRaw&r=0', title: 'Photo 10' },
   ];
   selectedPhoto: any[] = [];
 
-  constructor(private modalCtrl: ModalController) { }
+  constructor(private modalCtrl: ModalController) {
+    addIcons({ arrowBack })
+  }
 
   ngOnInit() {
   }

@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonButton, MatButtonModule, IonInput, IonItem, IonAlert, IonContent, IonToast, CommonModule, FormsModule, RouterLink]
+  imports: [MatButtonModule, IonInput, IonItem, IonAlert, IonContent, IonToast, CommonModule, FormsModule, RouterLink]
 })
 export class LoginPage {
 

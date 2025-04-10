@@ -16,8 +16,7 @@ export class PhotoPreviewComponent  implements OnInit {
 
   swiper!: Swiper;
 
-  @Input() photos: any[] = [];
-  @Input() initialIndex = 0;
+  @Input() photo: any;
 
   constructor(private modalCtrl: ModalController) { 
     addIcons({ close });

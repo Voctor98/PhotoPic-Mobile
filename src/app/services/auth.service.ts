@@ -9,8 +9,8 @@ import { BehaviorSubject, map, Observable } from 'rxjs';
 })
 export class AuthService {
   
-  // private url = 'http://localhost:4000/api/auth/user';
-  private url = 'https://photopic-back-production.up.railway.app/api/auth/user';
+  private url = 'http://localhost:4000/api/auth/user';
+  // private url = 'https://photopic-back-production.up.railway.app/api/auth/user';
   private authState = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient, private router: Router) { }

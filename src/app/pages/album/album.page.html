@@ -1,5 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/tabs">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>XV años</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,18 +19,17 @@
             <ion-icon *ngIf="isSelected(photo)" name="checkmark-circle" class="selected-icon"></ion-icon>
           </ion-card-content>
         </ion-card> -->
-        <ion-card (click)="openPhotoPreview(photo)">
+        <ion-card class="instagram-card" (click)="openPhotoPreview(photo)">
           <img [src]="photo.src" />
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
-
-  <ion-footer>
-    <ion-toolbar>
-      <ion-button expand="block" (click)="submitSelection()" [disabled]="selectedPhoto.length === 0">
-        Solicitar Impresión/Edición ({{ selectedPhoto.length }})
-      </ion-button>
-    </ion-toolbar>
-  </ion-footer>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="block" (click)="submitSelection()" [disabled]="selectedPhoto.length === 0">
+      Solicitar Impresión/Edición ({{ selectedPhoto.length }})
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
